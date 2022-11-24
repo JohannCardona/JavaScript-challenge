@@ -1,3 +1,7 @@
+body {
+  background-color: blanchedalmond;
+}
+
 @keyframes spinner {
   from {
     transform:rotate(0deg);
@@ -9,7 +13,22 @@
 
 .container {
   display: flex;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  margin: 5px;
+}
+
+.button {
+  background-color: cadetblue;
+  border: none;
+  border-radius: 4px;
+  padding: 15px 24px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }
 
 .spinner{
