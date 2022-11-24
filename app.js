@@ -1,19 +1,24 @@
-const express = require('express')
-const path = require('path')
-const stocks = require('./stocks')
+const express = require("express");
+const path = require("path");
+const stocks = require("./stocks");
 
-const app = express()
-app.use(express.static(path.join(__dirname, 'static')))
+const app = express();
 
-app.get('/stocks', async (req, res) => {
-  const stockSymbols = await stocks.getStocks()
-  res.send({ stockSymbols })
-})
+console.log("hello!!!");
 
-app.get('/stocks/:symbol', async (req, res) => {
-  const { params: { symbol } } = req
-  const data = await stocks.getStockPoints(symbol, new Date())
-  res.send(data)
-})
+app.use(express.static(path.join(__dirname, "static")));
 
-app.listen(3000, () => console.log('Server is running!'))
+app.get("/stocks", async (req, res) => {
+  const stockSymbols = await stocks.getStocks();
+  res.send({ stockSymbols });
+});
+
+app.get("/stocks/:symbol", async (req, res) => {
+  const {
+    params: { symbol },
+  } = req;
+  const data = await stocks.getStockPoints(symbol, new Date());
+  res.send(data);
+});
+
+app.listen(3000, () => console.log("Server is running!!!"));

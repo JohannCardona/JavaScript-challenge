@@ -1,8 +1,29 @@
-.spinner{
-  font-size: 140px;
+@keyframes spinner {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
 }
-.spinner:after {
+
+.container {
+  display: flex;
+  padding: 3rem 0;
+}
+
+.spinner{
+  font-size: 100px;
+}
+
+.spinner::before {
   content: '◌';
+  position: absolute; 
+  top: 45%;
+  left: 30%;
+  margin-top: -15px;
+  margin-left: -15px;
+  animation: spinner 1s linear infinite;
 }
 
 #chart {
